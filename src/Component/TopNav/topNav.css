@@ -1,0 +1,29 @@
+.topnav{
+  width: 100%;
+  position: fixed;
+    height: auto;
+    border-bottom: 1px solid #d9d6d6;
+    /* position: fixed; */
+    z-index: 200;
+}
+
+.Jumbotron{
+    color: #484848;
+   width: 100%;
+   /* position: fixed; */
+  }
+  .drop{
+    display: block;
+    border: 1px solid #48484876;
+    padding: 4px 15px;
+    border-radius: 50px;
+  }
+  .bx-menu{
+    color: #11101da5;
+    font-size: 35px;
+    margin: 0 0 0 50px;
+    cursor: pointer;
+  }
+  .searchIcon{
+    color: #484848;
+  }

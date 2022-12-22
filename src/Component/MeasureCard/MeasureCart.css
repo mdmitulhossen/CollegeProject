@@ -1,0 +1,92 @@
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 39%, 32%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 14%, 45%);
+    --grayishBlue: hsl(229, 24%, 53%);
+    --veryLightGray: hsl(0, 0%, 98%);
+    --weight1: 200;
+    --weight2: 400;
+    --weight3: 600;
+}
+.boxCard p {
+    color: var(--grayishBlue);
+    font-size:27px;
+}
+
+.boxCard {
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 50px -15px var(--grayishBlue);
+    /* background-image: linear-gradient(to top, #f6eaf3 0%, #a6c1ee 100%); */
+    padding: 30px;
+    margin: 20px;
+    height: 240px;  
+    color: black;
+}
+
+.img {
+    float: right;
+    font-size: 50px;
+    font-weight: 300;
+}
+.cyanI {
+    color: hsla(180, 62%, 55%, 0.522);
+}
+.redI {
+    color: hsla(0, 78%, 62%, 0.522);;
+}
+.blueI {
+    color:  hsla(212, 86%, 64%, 0.522);
+}
+.orangeI {
+    color:  hsla(34, 97%, 64%, 0.522);
+}
+
+
+@media (max-width: 450px) {
+    .boxCard {
+        height: 200px;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+    .boxCard {
+        text-align: center;
+        height: 210px;
+    }
+}
+
+.cyan {
+    border-top: 5px solid var(--cyan);
+    background-image: linear-gradient(to top, #f6eaf3 0%, #a6c1ee 100%);
+}
+.red {
+    border-top: 5px solid var(--red);
+    background-image: linear-gradient(to top, #f7e6e8 0%, #a0f0e9 100%);
+}
+.blue {
+    border-top: 5px solid var(--blue);
+    background-image: linear-gradient(to top, #f0faf3 0%, #cad3a4 100%);
+}
+.orange {
+    border-top: 5px solid var(--orange);
+    background-image: linear-gradient(to top, #ebfdeb 0%, #f2d8ed 100%);
+}
+
+h2 {
+    color: var(--varyDarkBlue);
+    font-weight: var(--weight3);
+}
+
+
+@media (min-width: 950px) {
+    .box {
+        width: 20%;
+    }
+    .header p {
+        width: 30%;
+    }
+    
+}

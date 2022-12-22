@@ -1,0 +1,50 @@
+.dashboard{
+    /* background: #E4E9F7; */
+    height: 100%;
+    /* margin-top: 70px;  */
+}
+.carousel-item>img{
+    display: block;
+    width: 98%;
+    height: 380px;
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
+/* ==========intro=========== */
+.intro{
+    line-height: 1px;
+    margin-left: 10px;
+}
+.intro>p{
+    font-weight: 700;
+    color: #1E88E5;
+    font-size: 25px;
+    margin-top: 30px;
+}
+/* ==========Card============ */
+.cardSection{
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/*======== profilecard =========*/
+.profilecard{
+    margin: 35px 0 0 10px;
+}
+
+.datatable{
+    width: 95%;
+    margin: 35px 0 0 20px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .dashboard{
+        margin-top: 170px; 
+    }
+  }
+  
