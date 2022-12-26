@@ -3,10 +3,10 @@ import { Breadcrumb, Button, Input, Tooltip } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import DataTable212 from '../../Helper/Datatable212';
 
-import "./StudentDataTable.css"
+import "../StudentData/StudentDataTable.css"
 
 
-const StudentDataTable = () => {
+const TeacherDataTable = () => {
     const style ={
         padding: "9px",
          width: "250px",
@@ -15,21 +15,21 @@ const StudentDataTable = () => {
     return (
         <div  className='student'>
             <div className='mx-3 mt-2'>
-                <h4>Student</h4>
+                <h4>Teacher</h4>
                 <Breadcrumb
                     style={{
                         margin: '0px 0 16px 0',
                     }}
                 >
                     <Breadcrumb.Item>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item>Student</Breadcrumb.Item>
+                    <Breadcrumb.Item>teacher</Breadcrumb.Item>
                     <Breadcrumb.Item>list</Breadcrumb.Item>
                 </Breadcrumb>
             </div>
             <div className='d-flex justify-content-center mt-4'>
                 
                     <Input placeholder='Search By Name......' style={style} />
-                    <Input placeholder='Search By RegNo......' style={style} />
+                    <Input placeholder='Search By ID......' style={style} />
                     <Input placeholder='Search By Department......' style={style} />
                     <Tooltip title="Search">
                     <Button type="primary" style={{marginLeft:"10px"}} size='large' icon={<SearchOutlined />}>
@@ -44,4 +44,4 @@ const StudentDataTable = () => {
     );
 };
 
-export default StudentDataTable;
+export default TeacherDataTable;

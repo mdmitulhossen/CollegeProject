@@ -26,6 +26,11 @@
     color: black;
 }
 
+.Mcard{
+    width: 250px;
+    margin: 30px;
+}
+
 .img {
     float: right;
     font-size: 50px;
@@ -59,20 +64,20 @@
 }
 
 .cyan {
-    border-top: 5px solid var(--cyan);
-    background-image: linear-gradient(to top, #f6eaf3 0%, #a6c1ee 100%);
+    border-left: 5px solid var(--cyan);
+    /* background-image: linear-gradient(to top, #f6eaf3 0%, #a6c1ee 100%); */
 }
 .red {
-    border-top: 5px solid var(--red);
-    background-image: linear-gradient(to top, #f7e6e8 0%, #a0f0e9 100%);
+    border-left: 5px solid var(--red);
+    /* background-image: linear-gradient(to top, #fbf3f4 0%, #bbeae6 100%); */
 }
 .blue {
-    border-top: 5px solid var(--blue);
-    background-image: linear-gradient(to top, #f0faf3 0%, #cad3a4 100%);
+    border-left: 5px solid var(--blue);
+    /* background-image: linear-gradient(to top, #f0faf3 0%, #cad3a4 100%); */
 }
 .orange {
-    border-top: 5px solid var(--orange);
-    background-image: linear-gradient(to top, #ebfdeb 0%, #f2d8ed 100%);
+    border-left: 5px solid var(--orange);
+    /* background-image: linear-gradient(to top, #deebde 0%, #fae7f5 100%); */
 }
 
 h2 {

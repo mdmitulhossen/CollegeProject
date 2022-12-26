@@ -5,7 +5,8 @@ const AcademicCelender= () => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
   return (
-    <div className="w-25">
+    <div className="w-75">
+      <h5>Academic Celender</h5>
       <Calendar fullscreen={false} onPanelChange={onPanelChange} />
     </div>
   );

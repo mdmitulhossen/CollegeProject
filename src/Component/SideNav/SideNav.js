@@ -1,8 +1,12 @@
 import React from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
+import CelenderB from '../Celender/CelenderB';
 import DashBoard from '../Dashboard/DashBoard';
+import StudentDataTable from '../StudentData/StudentDataTable';
+import TeacherDataTable from '../TeacherData/TeacherDataTable';
 import "./sideNav.css";
 import "./toggle.js";
+
 
 const SideNav = () => {
 
@@ -11,30 +15,30 @@ const SideNav = () => {
             <div className="sidebar">
                 <ul className="nav-links">
                     <li>
-                        <NavLink to="#">
+                        <NavLink to="/">
                             <i className='bx bx-grid-alt' ></i>
                             <span className="link_name">Dashboard</span>
                         </NavLink>
                         <ul className="sub-menu blank">
-                            <li><NavLink className="link_name" to="#">Category</NavLink></li>
+                            <li><NavLink className="link_name" to="#">DashBoard</NavLink></li>
                         </ul>
                     </li>
                     <li>
                         <div className="iocn-link">
-                            <NavLink to="#">
+                            <NavLink to="department">
                                 <i className='bx bx-collection' ></i>
-                                <span className="link_name">Category</span>
+                                <span className="link_name">Department</span>
                             </NavLink>
                             <i className='bx bxs-chevron-down arrow' ></i>
                         </div>
                         <ul className="sub-menu">
-                            <li><NavLink className="link_name" to="#">Category</NavLink></li>
-                            <li><NavLink to="#">HTML & CSS</NavLink></li>
-                            <li><NavLink to="#">JavaScript</NavLink></li>
-                            <li><NavLink to="#">PHP & MySQL</NavLink></li>
+                            <li><NavLink className="link_name" to="#">Department</NavLink></li>
+                            <li><NavLink to="/department/cse">CSE</NavLink></li>
+                            <li><NavLink to="/department/eee">EEE</NavLink></li>
+                            <li><NavLink to="/department/ce">CE</NavLink></li>
                         </ul>
                     </li>
-                    <li>
+                    {/* <li>
                         <div className="iocn-link">
                             <NavLink to="#">
                                 <i className='bx bx-book-alt' ></i>
@@ -48,26 +52,26 @@ const SideNav = () => {
                             <li><NavLink to="#">Login Form</NavLink></li>
                             <li><NavLink to="#">Card Design</NavLink></li>
                         </ul>
-                    </li>
+                    </li> */}
                     <li>
-                        <NavLink to="#">
-                            <i className='bx bx-pie-chart-alt-2' ></i>
-                            <span className="link_name">Analytics</span>
+                        <NavLink to="/student">
+                        <i class="fa-solid fa-person"></i>
+                            <span className="link_name">Student</span>
                         </NavLink>
                         <ul className="sub-menu blank">
-                            <li><NavLink className="link_name" to="#">Analytics</NavLink></li>
+                            <li><NavLink className="link_name" to="#">Student</NavLink></li>
                         </ul>
                     </li>
                     <li>
-                        <NavLink to="#">
+                        <NavLink to="/teacher">
                             <i className='bx bx-line-chart' ></i>
-                            <span className="link_name">Chart</span>
+                            <span className="link_name">Teacher</span>
                         </NavLink>
                         <ul className="sub-menu blank">
-                            <li><NavLink className="link_name" to="#">Chart</NavLink></li>
+                            <li><NavLink className="link_name" to="#">Teacher</NavLink></li>
                         </ul>
                     </li>
-                    <li>
+                    {/* <li>
                         <div className="iocn-link">
                             <NavLink to="#">
                                 <i className='bx bx-plug' ></i>
@@ -81,27 +85,36 @@ const SideNav = () => {
                             <li><NavLink to="#">Pigments</NavLink></li>
                             <li><NavLink to="#">Box Icons</NavLink></li>
                         </ul>
-                    </li>
+                    </li> */}
                     <li>
-                        <NavLink to="#">
-                            <i className='bx bx-compass' ></i>
-                            <span className="link_name">Explore</span>
+                        <NavLink to="staff">
+                        <i class="fa-solid fa-person-skating"></i>
+                            <span className="link_name">Staffs</span>
                         </NavLink>
                         <ul className="sub-menu blank">
-                            <li><NavLink className="link_name" to="#">Explore</NavLink></li>
+                            <li><NavLink className="link_name" to="#">Staffs</NavLink></li>
                         </ul>
                     </li>
                     <li>
-                        <NavLink to="#">
+                        <NavLink to="notice">
                             <i className='bx bx-history'></i>
-                            <span className="link_name">History</span>
+                            <span className="link_name">Notice</span>
                         </NavLink>
                         <ul className="sub-menu blank">
                             <li><NavLink className="link_name" to="#">History</NavLink></li>
                         </ul>
                     </li>
                     <li>
-                        <NavLink to="#">
+                        <NavLink to="celender">
+                        <i class="fa-solid fa-calendar-days"></i>
+                            <span className="link_name">Celender</span>
+                        </NavLink>
+                        <ul className="sub-menu blank">
+                            <li><NavLink className="link_name" to="#">Celender</NavLink></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <NavLink to="setting">
                             <i className='bx bx-cog' ></i>
                             <span className="link_name">Setting</span>
                         </NavLink>
@@ -129,7 +142,10 @@ const SideNav = () => {
             <div className="home-section">
                 <div className="home-content">
                     <Routes>
-                        <Route path='/' element={<DashBoard />} />
+                        <Route path='/' exact element={<DashBoard />} />
+                        <Route path='/student' element={<StudentDataTable/>} />
+                        <Route path='/teacher' element={<TeacherDataTable/>} />
+                        <Route path='/celender' element={<CelenderB/>} />
                     </Routes>
                 </div>
 

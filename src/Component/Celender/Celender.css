@@ -1,0 +1,11 @@
+.celender{
+    width: 90%;
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 600px) {
+    .celender{
+        margin-top: 175px; 
+        margin-left: 15px;
+    }
+  }

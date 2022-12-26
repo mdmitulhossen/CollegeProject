@@ -6,8 +6,8 @@ const ProfileCard = () => {
         <div className='w-100'>
             <section>
                 <div class="container">
-                    <div class="row d-flex">
-                        <div class="col col-lg-6 mb-4 mb-lg-0">
+                    <div class="row">
+                        <div class="col col-lg-12 mb-4 mb-lg-0">
                             <div class="card mb-3" style={{borderRadius: ".5rem"}}>
                                 <div class="row g-0">
                                     <div class="col-md-4 gradient-custom text-center text-white"
