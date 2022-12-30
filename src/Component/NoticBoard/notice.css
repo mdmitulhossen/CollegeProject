@@ -1,0 +1,9 @@
+.Anotice{
+    width: 90%;
+    margin: 30px auto;
+}
+@media screen and (max-width: 600px) {
+    .Anotice{
+        margin-top: 200px; 
+    }
+  }

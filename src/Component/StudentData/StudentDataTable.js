@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumb, Button, Input, Tooltip } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import DataTable212 from '../../Helper/Datatable212';
 
 import "./StudentDataTable.css"
@@ -14,7 +14,7 @@ const StudentDataTable = () => {
     }
     return (
         <div  className='student'>
-            <div className='mx-3 mt-2'>
+            <div className='mx-1 mt-2'>
                 <h4>Student</h4>
                 <Breadcrumb
                     style={{
@@ -35,6 +35,9 @@ const StudentDataTable = () => {
                     <Button type="primary" style={{marginLeft:"10px"}} size='large' icon={<SearchOutlined />}>
                         Search
                     </Button>
+                    </Tooltip>
+                    <Tooltip title="Add Teacher">
+                    <Button type="primary" style={{marginLeft:"10px"}} icon={<PlusOutlined />} size="large"></Button>
                     </Tooltip>
               
             </div>

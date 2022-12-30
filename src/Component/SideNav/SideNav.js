@@ -2,7 +2,12 @@ import React from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import CelenderB from '../Celender/CelenderB';
 import DashBoard from '../Dashboard/DashBoard';
+import Login from '../Login/Login';
+import NoticeBoard from '../NoticBoard/NoticeBoard';
+import Register from '../Register/Register';
 import StudentDataTable from '../StudentData/StudentDataTable';
+import StudentProfile from '../StudentData/StudentProfile';
+import UpdateProfile from '../StudentData/UpdateProfile';
 import TeacherDataTable from '../TeacherData/TeacherDataTable';
 import "./sideNav.css";
 import "./toggle.js";
@@ -16,14 +21,14 @@ const SideNav = () => {
                 <ul className="nav-links">
                     <li>
                         <NavLink to="/">
-                            <i className='bx bx-grid-alt' ></i>
+                            <i className='bx bx-grid-alt Dicon' ></i>
                             <span className="link_name">Dashboard</span>
                         </NavLink>
                         <ul className="sub-menu blank">
                             <li><NavLink className="link_name" to="#">DashBoard</NavLink></li>
                         </ul>
                     </li>
-                    <li>
+                    {/* <li>
                         <div className="iocn-link">
                             <NavLink to="department">
                                 <i className='bx bx-collection' ></i>
@@ -37,7 +42,7 @@ const SideNav = () => {
                             <li><NavLink to="/department/eee">EEE</NavLink></li>
                             <li><NavLink to="/department/ce">CE</NavLink></li>
                         </ul>
-                    </li>
+                    </li> */}
                     {/* <li>
                         <div className="iocn-link">
                             <NavLink to="#">
@@ -146,6 +151,11 @@ const SideNav = () => {
                         <Route path='/student' element={<StudentDataTable/>} />
                         <Route path='/teacher' element={<TeacherDataTable/>} />
                         <Route path='/celender' element={<CelenderB/>} />
+                        <Route path='/notice' element={<NoticeBoard/>} />
+                        <Route path='/student/studentProfile' element={<StudentProfile/>} />
+                        <Route path='/student/update/studentProfile' element={<UpdateProfile/>} />
+                        <Route path='/student/register' element={<Register/>} />
+                        <Route path='/student/signin' element={<Login/>} />
                     </Routes>
                 </div>
 

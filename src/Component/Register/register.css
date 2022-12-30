@@ -1,0 +1,86 @@
+/* .register{
+    padding: 50px 0;
+    height: 100%;
+    background: #ba68c8 url("../../assets/image/istockphoto-182240679-612x612.jpg") center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+}
+  */
+ .profileupdate {
+  width: 70% !important;
+ } 
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ba68c8;
+}
+
+.image-holder img {
+  border-radius: 15px;
+  transform: translateX(-120px);
+  border: 2px solid #0c4e9aa0;
+}
+.inner {
+
+  /* transform: translateX(47px); */
+  /* margin: auto; */
+  /* display: flex; */
+  background: #fff;
+  border-radius: 20px;
+  /* padding-top: 35px; */
+  padding-bottom: 35px;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.profile-button {
+    width: 65%;
+  background: rgb(99, 39, 120);
+  box-shadow: none;
+  border: none;
+}
+
+.border_top{
+    border: 2px solid #042954;
+}
+.profile-button:hover {
+  background: #682773;
+}
+
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none;
+}
+
+.profile-button:active {
+  background: #682773;
+  box-shadow: none;
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer;
+}
+
+.labels {
+  font-size: 11px;
+}
+.terms{
+    font-size: small;
+}
+.add-experience:hover {
+  background: #ba68c8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #ba68c8;
+}
+.border-right {
+  border-right: 1px solid rgba(169, 152, 152, 0.396);
+}
+@media screen and (max-width: 1200px) {
+    .image-holder{
+        display: none; 
+    }
+  }

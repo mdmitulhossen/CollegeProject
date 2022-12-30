@@ -63,7 +63,7 @@ const TopNav = () => {
                                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                             <li><NavLink className="dropdown-item" to="#">My profile</NavLink ></li>
                                             <li><NavLink  className="dropdown-item" to="#">Settings</NavLink ></li>
-                                            <li><NavLink  className="dropdown-item" to="#">Logout</NavLink ></li>
+                                            <li><NavLink  className="dropdown-item" to="/student/signin">SignIn</NavLink ></li>
                                         </ul>
                                     </div>
                                 </div>

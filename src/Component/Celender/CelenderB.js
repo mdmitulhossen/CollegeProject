@@ -13,7 +13,7 @@ const CelenderB = () => {
     setValue(newValue);
   };
   return (
-    <div className='celender'>
+    <div className='Acelender'>
       <Alert message={`You selected date: ${selectedValue?.format('YYYY-MM-DD')}`} />
       <br/>
       <Calendar value={value} onSelect={onSelect} onPanelChange={onPanelChange} />

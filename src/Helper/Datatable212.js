@@ -1,5 +1,7 @@
 
 import { Table } from 'antd';
+import { NavLink } from 'react-router-dom';
+import StudentProfile from '../Component/StudentData/StudentProfile';
 
 import "./DataTable.css"
 const columns = [
@@ -8,6 +10,10 @@ const columns = [
         dataIndex: 'name',
         sorter: true,
         width: '20%',
+        render: (text) => <NavLink to="/student/studentProfile">{text}</NavLink>
+        // render: (date,record) => {
+        //     return <NavLink onClick={showDetails(record)}>{date}</NavLink>
+        // },
     },
     {
         title: 'Gender',
@@ -22,8 +28,8 @@ const columns = [
                 value: 'female',
             },
         ],
-        onFilter:(value,record)=>{
-            return record.gender===value
+        onFilter: (value, record) => {
+            return record.gender === value
         },
         width: '20%',
     },
@@ -50,8 +56,8 @@ const columns = [
                 value: 'CE',
             },
         ],
-        onFilter:(value,record)=>{
-            return record.department===value;
+        onFilter: (value, record) => {
+            return record.department === value;
         },
     },
     {
@@ -73,8 +79,9 @@ const columns = [
 ];
 
 const sData = [
-    {    key:1,
-        email:"md.mitul.hossen@gmail.com",
+    {
+        key: 1,
+        email: "md.mitul.hossen@gmail.com",
         name: "Mitul",
         gender: "male",
         regNo: "3029",
@@ -82,7 +89,8 @@ const sData = [
         session: "2019-20",
         phoneNo: "01759999999"
     },
-    {key:2,
+    {
+        key: 2,
         name: "Usama",
         gender: "male",
         regNo: "3029",
@@ -90,7 +98,8 @@ const sData = [
         session: "2019-20",
         phoneNo: "01759999999"
     },
-    {key:3,
+    {
+        key: 3,
         name: "Faisol",
         gender: "male",
         regNo: "3029",
@@ -98,7 +107,8 @@ const sData = [
         session: "2019-20",
         phoneNo: "01759999999"
     },
-    {key:4,
+    {
+        key: 4,
         name: "Azad",
         gender: "male",
         regNo: "3029",
@@ -107,7 +117,7 @@ const sData = [
         phoneNo: "01759999999"
     },
     {
-        key:5,
+        key: 5,
         name: "Fahim",
         gender: "male",
         regNo: "3029",
@@ -116,7 +126,7 @@ const sData = [
         phoneNo: "01759999999"
     },
     {
-        key:6,
+        key: 6,
         name: "X",
         gender: "female",
         regNo: "3029",
@@ -125,7 +135,7 @@ const sData = [
         phoneNo: "01759999999"
     },
     {
-        key:7,
+        key: 7,
         name: "A",
         gender: "female",
         regNo: "3029",
@@ -135,18 +145,30 @@ const sData = [
     },
 ]
 
+
+
 const DataTable212 = () => {
-   
+
     return (
         <div>
             <div className='dataTable'>
                 <Table
+                //edit row section
+                    onRow={(record) => {
+                        return {
+                            onClick: event => {
+                                // save row data to state
+                                console.log(record);
+                                <StudentProfile/>
+                            }, // click row
+                        };
+                    }}
                     columns={columns}
-                    rowSelection={{type:"checkbox",onSelect:(record)=>console.log(record)}}
+                    rowSelection={{ type: "checkbox", onSelect: (record) => console.log(record) }}
                     // rowKey={(record) => record.login.uuid}
                     dataSource={sData}
-                    pagination={{total:200,showSizeChanger:true,pageSizeOptions:[2,5,10,20,50,100]}}
-                    // loading={true}
+                    pagination={{ total: 200, showSizeChanger: true, pageSizeOptions: [2, 5, 10, 20, 50, 100] }}
+                // loading={true}
                 />
             </div>
 
