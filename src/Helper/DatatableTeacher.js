@@ -1,6 +1,8 @@
 import { Table } from 'antd';
+import axios from 'axios';
 
 import "./DataTable.css"
+import { useEffect, useState } from "react";
 const columns = [
     {
         title: 'ID',
@@ -60,7 +62,7 @@ const columns = [
     },
     {
         title: 'Phone No',
-        dataIndex: 'phoneNo',
+        dataIndex: 'number',
         width: '20%'
     },
 
@@ -126,21 +128,57 @@ const sData = [
     },
 ]
 
-const DataTableTeacher = () => {
+const DataTableTeacher = ({ tdata }) => {
+    console.log(tdata.data)
+    const [data, setData] = useState({})
+
+    useEffect(() => {
+        setteacherAllData();
+    }, [])
+
+
+    //Data
+    const setteacherAllData = async () => {
+        await axios.get('http://localhost:8000/teacher/api/findall')
+            .then((response) => {
+                // console.log(response.data);
+                setData(response)
+
+            }
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+
 
     return (
         <div>
-             
+
             <div className='dataTable'>
-               
-                <Table
-                    columns={columns}
-                    rowSelection={{ type: "checkbox", onSelect: (record) => console.log(record) }}
-                    // rowKey={(record) => record.login.uuid}
-                    dataSource={sData}
-                    pagination={{ total: 200, showSizeChanger: true, pageSizeOptions: [2, 5, 10, 20, 50, 100] }}
-                // loading={true}
-                />
+                {
+                    tdata?.data
+                        ?
+                        <Table
+                            columns={columns}
+                            rowSelection={{ type: "checkbox", onSelect: (record) => console.log(record) }}
+                            // rowKey={(record) => record.login.uuid}
+                            dataSource={tdata?.data?.user}
+                            pagination={{ total: 200, showSizeChanger: true, pageSizeOptions: [2, 5, 10, 20, 50, 100] }}
+                        // loading={true}
+                        />
+                        :
+                        <Table
+                            columns={columns}
+                            rowSelection={{ type: "checkbox", onSelect: (record) => console.log(record) }}
+                            // rowKey={(record) => record.login.uuid}
+                            dataSource={data?.data}
+                            pagination={{ total: 200, showSizeChanger: true, pageSizeOptions: [2, 5, 10, 20, 50, 100] }}
+                        // loading={true}
+                        />
+                }
+
             </div>
 
         </div>

@@ -1,13 +1,36 @@
 import { Breadcrumb, Button } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormOutlined } from '@ant-design/icons';
 
 import "./StudentDemo.css"
 import "./studentStyle.css"
 import { NavLink } from "react-router-dom";
+import  axios  from "axios";
 
 
 const StudentProfile = () => {
+    // console.log(localStorage.getItem("profileEmail"))
+    const userEmail=localStorage.getItem("profileEmail");
+    console.log(userEmail)
+    const [user,setUser]=useState({});
+
+    useEffect(()=>{
+        axios.post('http://localhost:8000/auth/api/findOne',{email:userEmail})
+        .then((response) => {
+            // console.log(response);
+           setUser(response);
+        //    localStorage.removeItem("profileEmail")
+        })
+        .catch(function (error) {
+            console.log(error);
+            // toast.error("Login UnSuccessful",{position: "top-center"});
+        });
+        // window.location.reload(true)
+
+    },[userEmail])
+         
+   
+    console.log(user);
     return (
         <div>
             <div>
@@ -63,12 +86,12 @@ const StudentProfile = () => {
                                             <div class="card shadow-sm">
                                                 <div class="card-header bg-transparent text-center">
                                                     <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp" />
-                                                    <h3>Md Mitul Hossain</h3>
+                                                    <h3>{user?.data?.name}</h3>
                                                 </div>
                                                 <div class="card-body">
-                                                    <p class="mb-0"><strong class="pr-1">Student ID:</strong>30000</p>
-                                                    <p class="mb-0"><strong class="pr-1">Department:</strong>CSE</p>
-                                                    <p class="mb-0"><strong class="pr-1">Batch:</strong>07</p>
+                                                    <p class="mb-0"><strong class="pr-1">Student ID: </strong>{user?.data?.roll}</p>
+                                                    <p class="mb-0"><strong class="pr-1">Department: </strong>{user?.data?.department}</p>
+                                                    <p class="mb-0"><strong class="pr-1">Batch: </strong>{user?.data?.session}</p>
                                                 </div>
                                             </div>
                                             <div class="w-100 mt-4">
@@ -89,63 +112,63 @@ const StudentProfile = () => {
                                                         <tr>
                                                             <th width="30%">Name</th>
                                                             <td width="2%">:</td>
-                                                            <td>X</td>
+                                                            <td>{user?.data?.name}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Gender</th>
                                                             <td width="2%">:</td>
-                                                            <td>Male</td>
+                                                            <td>{user?.data?.gender}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Father Name</th>
                                                             <td width="2%">:</td>
-                                                            <td>M</td>
+                                                            <td>{user?.data?.fathername}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Mother Name</th>
                                                             <td width="2%">:</td>
-                                                            <td>Z</td>
+                                                            <td>{user?.data?.mothername}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Date of Birth</th>
                                                             <td width="2%">:</td>
-                                                            <td>19.2.2001</td>
+                                                            <td>{user?.data?.dateofbirth}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Address</th>
                                                             <td width="2%">:</td>
-                                                            <td>Ksuhtia</td>
+                                                            <td>{user?.data?.address}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Religion</th>
                                                             <td width="2%">:</td>
-                                                            <td>Islam</td>
+                                                            <td>{user?.data?.religion}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Roll No</th>
                                                             <td width="2%">:</td>
-                                                            <td>125</td>
+                                                            <td>{user?.data?.roll}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">Reg. No</th>
                                                             <td width="2%">:</td>
-                                                            <td>3029</td>
+                                                            <td>{user?.data?.regNo}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">session</th>
                                                             <td width="2%">:</td>
-                                                            <td>2029-20</td>
+                                                            <td>{user?.data?.session}</td>
                                                         </tr>
 
                                                         <tr>
                                                             <th width="30%">Email</th>
                                                             <td width="2%">:</td>
-                                                            <td>b233402@gmail.com</td>
+                                                            <td>{user?.data?.email}</td>
                                                         </tr>
                                                         <tr>
                                                             <th width="30%">blood</th>
                                                             <td width="2%">:</td>
-                                                            <td>B+</td>
+                                                            <td>{user?.data?.bloodgroup}</td>
                                                         </tr>
                                                     </table>
                                                 </div>

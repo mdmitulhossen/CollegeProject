@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import AcademicCelender from '../../Helper/AcademicCelender';
 import SdataTable from '../../Helper/SdataTable';
 import UniCarousel from '../../Helper/UniCarousel';
@@ -8,6 +9,59 @@ import "./Dashboard.css";
 
 
 const DashBoard = () => {
+    const [studentData, setStudentData] = useState({})
+    const [teacherData, setTeacherData] = useState({})
+    const [staffData, setStaffData] = useState({})
+    useEffect(() => {
+        // axios.get('http://localhost:8000/auth/api/findall')
+        // .then((response) => {
+        //     // console.log(response.data);
+        //    setData(response.data)
+
+        //     }
+        // )
+        // .catch(function (error) {
+        //     console.log(error);
+        // });
+        AllData();
+    }, [])
+ console.log(studentData.data)
+    const AllData = async () => {
+        //student
+        await axios.get('http://localhost:8000/auth/api/findall')
+            .then((response) => {
+                // console.log(response.data);
+                setStudentData(response)
+
+            }
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        //teacher
+        await axios.get('http://localhost:8000/teacher/api/findall')
+            .then((response) => {
+                // console.log(response.data);
+                setTeacherData(response)
+
+            }
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+        //staff
+        await axios.get('http://localhost:8000/staff/api/findall')
+            .then((response) => {
+                // console.log(response.data);
+                setStaffData(response)
+
+            }
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     return (
         <div className='dashboard'>
             <UniCarousel />
@@ -16,10 +70,10 @@ const DashBoard = () => {
                 <span>Home <i className='bx bxs-chevron-right arrow' ></i> DashBoard</span>
             </div>
             <div className='cardSection'>
-                <MeasureCart hName="Student" number="890" icon="fa-people-roof" color="cyan" />
-                <MeasureCart hName="Teacher" number="45" icon="fa-chalkboard-user" color="blue" />
-                <MeasureCart hName="Staff" number="58" icon="fa-people-robbery" color="orange" />
-                <MeasureCart hName="Total" number="1054" icon="fa-user-plus" color="red" />
+                <MeasureCart hName="Student" number={studentData?.data?.length} icon="fa-people-roof" color="cyan" />
+                <MeasureCart hName="Teacher" number={teacherData?.data?.length} icon="fa-chalkboard-user" color="blue" />
+                <MeasureCart hName="Staff" number={staffData?.data?.length} icon="fa-people-robbery" color="orange" />
+                <MeasureCart hName="Total" number={staffData?.data?.length+teacherData?.data?.length+studentData?.data?.length} icon="fa-user-plus" color="red" />
             </div>
              {/* <div className='line d-flex justify-content-center'><div></div></div> */}
             {/*======= Card Celelender========= */}

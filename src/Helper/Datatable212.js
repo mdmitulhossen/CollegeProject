@@ -1,9 +1,10 @@
-
+import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { NavLink } from 'react-router-dom';
 import StudentProfile from '../Component/StudentData/StudentProfile';
-
+import axios from "axios"
 import "./DataTable.css"
+
 const columns = [
     {
         title: 'Name',
@@ -72,7 +73,7 @@ const columns = [
     },
     {
         title: 'Phone No',
-        dataIndex: 'phoneNo',
+        dataIndex: 'number',
         width: '20%'
     },
 
@@ -84,7 +85,7 @@ const sData = [
         email: "md.mitul.hossen@gmail.com",
         name: "Mitul",
         gender: "male",
-        regNo: "3029",
+        regno: "3029",
         department: "CSE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -93,7 +94,7 @@ const sData = [
         key: 2,
         name: "Usama",
         gender: "male",
-        regNo: "3029",
+        regno: "3029",
         department: "CSE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -102,7 +103,7 @@ const sData = [
         key: 3,
         name: "Faisol",
         gender: "male",
-        regNo: "3029",
+        regno: "3029",
         department: "CSE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -111,7 +112,7 @@ const sData = [
         key: 4,
         name: "Azad",
         gender: "male",
-        regNo: "3029",
+        regno: "3029",
         department: "CeE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -120,7 +121,7 @@ const sData = [
         key: 5,
         name: "Fahim",
         gender: "male",
-        regNo: "3029",
+        regno: "3029",
         department: "CE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -129,7 +130,7 @@ const sData = [
         key: 6,
         name: "X",
         gender: "female",
-        regNo: "3029",
+        regno: "3029",
         department: "CSE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -138,7 +139,7 @@ const sData = [
         key: 7,
         name: "A",
         gender: "female",
-        regNo: "3029",
+        regno: "3029",
         department: "CE",
         session: "2019-20",
         phoneNo: "01759999999"
@@ -147,29 +148,82 @@ const sData = [
 
 
 
-const DataTable212 = () => {
 
+const DataTable212 = ({SSData}) => {
+    const [data, setData] = useState({})
+    useEffect(() => {
+        // axios.get('http://localhost:8000/auth/api/findall')
+        // .then((response) => {
+        //     // console.log(response.data);
+        //    setData(response.data)
+
+        //     }
+        // )
+        // .catch(function (error) {
+        //     console.log(error);
+        // });
+        setAllData();
+    }, [])
+ console.log(data)
+    const setAllData = async () => {
+        await axios.get('http://localhost:8000/auth/api/findall')
+            .then((response) => {
+                // console.log(response.data);
+                setData(response)
+
+            }
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     return (
+        
         <div>
             <div className='dataTable'>
-                <Table
-                //edit row section
+                {
+                    SSData?.data ?
+                     <Table
+                        //edit row section
+                        onRow={(record) => {
+                            return {
+                                onClick: event => {
+                                    // save row data to state
+                                    console.log(record.email);
+                                    localStorage.setItem("profileEmail",record.email);
+                                    // <StudentProfile email={record.email} />
+                                }, // click row
+                            };
+                        }}
+                        columns={columns}
+                        rowSelection={{ type: "checkbox", onSelect: (record) => console.log(record) }}
+                        // rowKey={(record) => record.login.uuid}
+                        dataSource={SSData?.data?.user}
+                        pagination={{ total: 200, showSizeChanger: true, pageSizeOptions: [2, 5, 10, 20, 50, 100] }}
+                    // loading={true}
+                    />
+                    :
+                    <Table
+                    //edit row section
                     onRow={(record) => {
                         return {
                             onClick: event => {
                                 // save row data to state
-                                console.log(record);
-                                <StudentProfile/>
+                                console.log(record.email);
+                                localStorage.setItem("profileEmail",record.email);
+                                // <StudentProfile email={record.email} />
                             }, // click row
                         };
                     }}
                     columns={columns}
                     rowSelection={{ type: "checkbox", onSelect: (record) => console.log(record) }}
                     // rowKey={(record) => record.login.uuid}
-                    dataSource={sData}
+                    dataSource={data?.data}
                     pagination={{ total: 200, showSizeChanger: true, pageSizeOptions: [2, 5, 10, 20, 50, 100] }}
                 // loading={true}
                 />
+                }
+             
             </div>
 
         </div>

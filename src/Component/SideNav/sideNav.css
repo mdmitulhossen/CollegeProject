@@ -227,7 +227,9 @@
   display: none;
 }
 .sidebar .profile-details .job{
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: aqua;
 }
 
 /* ====Dashboard manage===== */

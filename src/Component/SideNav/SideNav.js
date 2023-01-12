@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import CelenderB from '../Celender/CelenderB';
 import DashBoard from '../Dashboard/DashBoard';
@@ -11,9 +11,12 @@ import UpdateProfile from '../StudentData/UpdateProfile';
 import TeacherDataTable from '../TeacherData/TeacherDataTable';
 import "./sideNav.css";
 import "./toggle.js";
+import Staff from "./../Staff/Staff";
+import User from "./../../Auth/User";
 
 
 const SideNav = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
 
     return (
         <div className="sideNav">
@@ -28,36 +31,7 @@ const SideNav = () => {
                             <li><NavLink className="link_name" to="#">DashBoard</NavLink></li>
                         </ul>
                     </li>
-                    {/* <li>
-                        <div className="iocn-link">
-                            <NavLink to="department">
-                                <i className='bx bx-collection' ></i>
-                                <span className="link_name">Department</span>
-                            </NavLink>
-                            <i className='bx bxs-chevron-down arrow' ></i>
-                        </div>
-                        <ul className="sub-menu">
-                            <li><NavLink className="link_name" to="#">Department</NavLink></li>
-                            <li><NavLink to="/department/cse">CSE</NavLink></li>
-                            <li><NavLink to="/department/eee">EEE</NavLink></li>
-                            <li><NavLink to="/department/ce">CE</NavLink></li>
-                        </ul>
-                    </li> */}
-                    {/* <li>
-                        <div className="iocn-link">
-                            <NavLink to="#">
-                                <i className='bx bx-book-alt' ></i>
-                                <span className="link_name">Posts</span>
-                            </NavLink>
-                            <i className='bx bxs-chevron-down arrow' ></i>
-                        </div>
-                        <ul className="sub-menu">
-                            <li><NavLink className="link_name" to="#">Posts</NavLink></li>
-                            <li><NavLink to="#">Web Design</NavLink></li>
-                            <li><NavLink to="#">Login Form</NavLink></li>
-                            <li><NavLink to="#">Card Design</NavLink></li>
-                        </ul>
-                    </li> */}
+                   
                     <li>
                         <NavLink to="/student">
                         <i class="fa-solid fa-person"></i>
@@ -76,21 +50,7 @@ const SideNav = () => {
                             <li><NavLink className="link_name" to="#">Teacher</NavLink></li>
                         </ul>
                     </li>
-                    {/* <li>
-                        <div className="iocn-link">
-                            <NavLink to="#">
-                                <i className='bx bx-plug' ></i>
-                                <span className="link_name">Plugins</span>
-                            </NavLink>
-                            <i className='bx bxs-chevron-down arrow' ></i>
-                        </div>
-                        <ul className="sub-menu">
-                            <li><NavLink className="link_name" to="#">Plugins</NavLink></li>
-                            <li><NavLink to="#">UI Face</NavLink></li>
-                            <li><NavLink to="#">Pigments</NavLink></li>
-                            <li><NavLink to="#">Box Icons</NavLink></li>
-                        </ul>
-                    </li> */}
+                   
                     <li>
                         <NavLink to="staff">
                         <i class="fa-solid fa-person-skating"></i>
@@ -133,8 +93,10 @@ const SideNav = () => {
                                 {/* <!--<img src="image/profile.jpg" alt="profileImg">--> */}
                             </div>
                             <div className="name-job">
-                                <div className="profile_name">MD Mitul</div>
-                                <div className="job">Web Developer</div>
+                                <div className="profile_name">{user?.name}</div>
+                                {
+                                    user?.role?<div className="job">Admin</div>:<div className="job">Student</div>
+                                }
                             </div>
                             <i className='bx bx-log-out' ></i>
                         </div>
@@ -147,15 +109,16 @@ const SideNav = () => {
             <div className="home-section">
                 <div className="home-content">
                     <Routes>
-                        <Route path='/' exact element={<DashBoard />} />
-                        <Route path='/student' element={<StudentDataTable/>} />
-                        <Route path='/teacher' element={<TeacherDataTable/>} />
-                        <Route path='/celender' element={<CelenderB/>} />
-                        <Route path='/notice' element={<NoticeBoard/>} />
-                        <Route path='/student/studentProfile' element={<StudentProfile/>} />
-                        <Route path='/student/update/studentProfile' element={<UpdateProfile/>} />
-                        <Route path='/student/register' element={<Register/>} />
-                        <Route path='/student/signin' element={<Login/>} />
+                        <Route exact path='/' element={<DashBoard />} />
+                        <Route exact path='/student' element={<User><StudentDataTable/></User>} />
+                        <Route exact path='/teacher' element={<User><TeacherDataTable/></User>} />
+                        <Route exact path='/staff' element={<User><Staff/></User>} />
+                        <Route exact path='/celender' element={<CelenderB/>} />
+                        <Route exact path='/notice' element={<NoticeBoard/>} />
+                        <Route exact path='/student/studentProfile' element={<StudentProfile/>} />
+                        <Route exact path='/student/update/studentProfile' element={<UpdateProfile/>} />
+                        <Route exact path='/student/register' element={<Register/>} />
+                        <Route exact path='/student/signin' element={<Login/>} />
                     </Routes>
                 </div>
 
