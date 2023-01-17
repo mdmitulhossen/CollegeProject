@@ -1,7 +1,7 @@
 import React from 'react';
-import image1 from '../assets/image/istockphoto-182240679-612x612.jpg';
-import image2 from '../assets/image/johns-hopkins-university-1590925__340.jpg';
-import image3 from '../assets/image/pexels-photo-207692.jpeg';
+import image1 from '../assets/image/3.jpg';
+import image2 from '../assets/image/4.jpg';
+import image3 from '../assets/image/5.jpg';
 import "./Carousel.css"
 
 const UniCarousel=() =>{

@@ -152,7 +152,9 @@ const TeacherDataTable = () => {
                     </Tooltip>
                     {
                             user?.role && <Tooltip title="Add Teacher">
+                                
                             <Button type="primary"  style={{marginLeft:"10px"}} icon={<PlusOutlined />}  size="large"></Button>
+                           
                             </Tooltip>
                     }
                     {/* <Tooltip title="Add Teacher">

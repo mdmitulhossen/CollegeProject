@@ -149,7 +149,7 @@ const Staff = () => {
                     </Button>
                     </Tooltip>
                     {
-                            user?.role && <Tooltip title="Add Teacher">
+                            user?.role && <Tooltip title="Add Staff">
                             <Button type="primary"  style={{marginLeft:"10px"}} icon={<PlusOutlined />}  size="large"></Button>
                             </Tooltip>
                     }

@@ -5,6 +5,9 @@ import DataTable212 from '../../Helper/Datatable212';
 
 import "./StudentDataTable.css"
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+
+
 
 
 
@@ -199,9 +202,12 @@ const StudentDataTable = () => {
                         Search
                     </Button>
                     </Tooltip>
+                    
                     {
                            role &&<Tooltip title="Add Student">
-                           <Button type="primary" style={{marginLeft:"10px"}} icon={<PlusOutlined />} size="large"></Button>
+                            <NavLink to="/student/register"><Button type="primary" style={{marginLeft:"10px"}} icon={<PlusOutlined />} size="large"></Button></NavLink>
+                           
+                           
                            </Tooltip>
                     }
                     {/* <Tooltip title="Add Student">
